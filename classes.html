@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<title>Example</title>
+<head>
+        <meta charset="utf-8" />
+        <title>AppEngine demo</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>AppEngine demo</h1>
+
+<p>
+<b><a href="https://moodle.up.pt/course/view.php?id=4854">
+Big Data and Cloud Computing
+</a></b>, DCC/FCUP, Eduardo R. B. Marques
+</p>
+
+<a href="https://flask.palletsprojects.com/">
+    <img src="{{ url_for('static', filename='flask.png') }}" height="60"/>
+</a>
+<a href="https://console.cloud.google.com/appengine">
+    <img src="{{ url_for('static', filename='appengine.png') }}" height="60"/>
+</a>
+
+<img src="{{ url_for('static', filename='overview.png') }}"/>
+
+<h2>Image classes</h2> 
+<table>
+    <tr>
+        <th>Label</th>
+        <th>Description</th>
+    </tr>
+    {% for result in results %}
+    <tr>
+        <td>{{ result[0] }}</td>
+        <td><a href="/images?label={{ result[0] }}&description={{ result[1] }}">{{ result[1] }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
